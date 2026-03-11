@@ -1,0 +1,15 @@
+# python cache
+__pycache__/
+*.pyc
+
+# notebooks
+.ipynb_checkpoints/
+
+# env / secrets
+.env
+*.log
+
+# results: ignore everything except the one snapshot
+results/*
+!results/sweep_bucketlayers_n215.jsonl
+
