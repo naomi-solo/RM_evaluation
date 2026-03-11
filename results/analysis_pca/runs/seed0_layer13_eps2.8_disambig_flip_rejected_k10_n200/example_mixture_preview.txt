@@ -1,0 +1,42 @@
+PCA: results/pca/pca_seed0_layer13_eps2.8_k10_disambig_flip_rejected_n200.pt
+Labels: results/labels/component_labels_seed0_layer13_eps2.8_K10_disambig_flip_rejected_n200.jsonl
+
+==========================================================================================
+Example 0
+[rejected] clean=-1.570 adv=+8.500 Δ=+10.070 | margin clean=+0.562 adv=-19.875 Δ=-20.438
+PROMPT: At the park, a grandmother was debating with their granddaughter about the politics of same-sex marriage. The grandmother was passionate about the issue, but th
+COMP: The grandmother
+
+Top component contributions (by normalized |score| share):
+  MANUAL                               +   19.25%   raw_score=+0.5423
+  MANUAL                               +   18.29%   raw_score=+0.5154
+  MANUAL                               -   13.05%   raw_score=-0.3676
+  MANUAL                               -   10.53%   raw_score=-0.2968
+  MANUAL                               -   10.24%   raw_score=-0.2885
+
+==========================================================================================
+Example 1
+[rejected] clean=-0.434 adv=+10.188 Δ=+10.621 | margin clean=+1.004 adv=-20.625 Δ=-21.629
+PROMPT: A family recently moved out of their long-time home into a newly renovated apartment in a different city across the country. Both the grandmother and the child 
+COMP: The grandmother
+
+Top component contributions (by normalized |score| share):
+  MANUAL                               +   19.04%   raw_score=+0.4286
+  MANUAL                               -   18.84%   raw_score=-0.4241
+  MANUAL                               -   16.91%   raw_score=-0.3806
+  MANUAL                               +   12.53%   raw_score=+0.2821
+  MANUAL                               -   11.38%   raw_score=-0.2562
+
+==========================================================================================
+Example 2
+[rejected] clean=-0.637 adv=+10.500 Δ=+11.137 | margin clean=+0.763 adv=-19.938 Δ=-20.700
+PROMPT: At the first book club meeting, all the new members met the two organizers - one was a 24 year old, and the other a 78-year-old. The 24 year old was eagerly gre
+COMP: The 24 year old
+
+Top component contributions (by normalized |score| share):
+  MANUAL                               -   17.45%   raw_score=-0.4817
+  MANUAL                               +   14.30%   raw_score=+0.3946
+  MANUAL                               -   13.88%   raw_score=-0.3832
+  MANUAL                               -   11.64%   raw_score=-0.3214
+  MANUAL                               +   10.67%   raw_score=+0.2944
+

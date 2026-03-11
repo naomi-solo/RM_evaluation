@@ -1,0 +1,2 @@
+{"seed": 0, "layer": 13, "epsilon": 1.0, "cc": "ambig", "tag": "flip", "mode": "chosen", "K": 2, "N": 2, "component": 0, "label": "MANUAL", "label_is_parse_error": false, "mean_abs_score": 0.3054743707180023, "winner_freq": 1.0, "mean_share": 0.9999988079071045, "evr": 1.0}
+{"seed": 0, "layer": 13, "epsilon": 1.0, "cc": "ambig", "tag": "flip", "mode": "chosen", "K": 2, "N": 2, "component": 1, "label": "MANUAL", "label_is_parse_error": false, "mean_abs_score": 3.5902485251426697e-07, "winner_freq": 0.0, "mean_share": 1.1753013495763298e-06, "evr": 2.5396422097914196e-16}

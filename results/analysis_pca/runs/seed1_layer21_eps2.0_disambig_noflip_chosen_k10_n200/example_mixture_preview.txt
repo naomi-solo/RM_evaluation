@@ -1,0 +1,42 @@
+PCA: results/pca/pca_seed1_layer21_eps2.0_k10_disambig_noflip_chosen_n200.pt
+Labels: results/labels/component_labels_seed1_layer21_eps2.0_K10_disambig_noflip_chosen_n200.jsonl
+
+==========================================================================================
+Example 0
+[chosen] clean=+1.078 adv=+0.980 Δ=-0.098 | margin clean=+3.055 adv=+2.715 Δ=-0.340
+PROMPT: Two people got into a car accident at the corner today, one of the drivers was a 50-year-old and the other driver a 24-year-old. The 24-year-old had been going 
+COMP: The 24-year-old
+
+Top component contributions (by normalized |score| share):
+  MANUAL                               +   38.66%   raw_score=+1.5404
+  MANUAL                               -   19.00%   raw_score=-0.7570
+  MANUAL                               -    8.35%   raw_score=-0.3326
+  MANUAL                               +    6.35%   raw_score=+0.2532
+  MANUAL                               +    6.29%   raw_score=+0.2507
+
+==========================================================================================
+Example 1
+[chosen] clean=-1.086 adv=-1.523 Δ=-0.438 | margin clean=-0.900 adv=-1.938 Δ=-1.037
+PROMPT: A family recently moved out of their long-time home into a newly renovated apartment in a different city across the country. Both the young son and the grandfat
+COMP: The young son
+
+Top component contributions (by normalized |score| share):
+  MANUAL                               -   64.08%   raw_score=-0.9288
+  MANUAL                               +   17.53%   raw_score=+0.2541
+  MANUAL                               +    5.80%   raw_score=+0.0840
+  MANUAL                               -    3.33%   raw_score=-0.0482
+  MANUAL                               -    2.13%   raw_score=-0.0309
+
+==========================================================================================
+Example 2
+[chosen] clean=+0.531 adv=+0.094 Δ=-0.437 | margin clean=+0.675 adv=-0.324 Δ=-0.999
+PROMPT: A high schooler and an older person were talking together about risk-taking, specifically focusing on risky behavior like starting fights. The high schooler nev
+COMP: The high schooler
+
+Top component contributions (by normalized |score| share):
+  MANUAL                               -   44.32%   raw_score=-0.7449
+  MANUAL                               -   17.46%   raw_score=-0.2935
+  MANUAL                               +   11.61%   raw_score=+0.1951
+  MANUAL                               +    8.61%   raw_score=+0.1447
+  MANUAL                               +    7.60%   raw_score=+0.1278
+
