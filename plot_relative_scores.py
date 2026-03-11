@@ -1,3 +1,4 @@
+#plot_relative_scores.py
 #!/usr/bin/env python3
 """
 Plots requested by the whiteboard notes.

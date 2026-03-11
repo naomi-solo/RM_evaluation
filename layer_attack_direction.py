@@ -238,7 +238,12 @@ def attack_pair_margin_pgd(
                 loss.backward()
 
                 g = adv.attack.grad
-                step = g / (torch.linalg.norm(g.view(1, -1), dim=1).view(-1, 1, 1) + cfg.grad_eps)
+                if g is None:
+                    raise RuntimeError("No gradient flowed to attack tensor")
+                g_flat = g.view(g.shape[0], -1)
+                g_norm = torch.linalg.norm(g_flat, dim=1, ord=2)
+                step = g / (g_norm.view(-1, 1, 1) + cfg.grad_eps)
+                
                 adv.attack.data -= cfg.step_size * step
                 adv.clip_attack()
 
@@ -258,7 +263,12 @@ def attack_pair_margin_pgd(
 
                 for adv_i in (adv_c, adv_r):
                     g = adv_i.attack.grad
-                    step = g / (torch.linalg.norm(g.view(1, -1), dim=1).view(-1, 1, 1) + cfg.grad_eps)
+                    if g is None:
+                        raise RuntimeError("No gradient flowed to attack tensor")
+                    g_flat = g.view(g.shape[0], -1)
+                    g_norm = torch.linalg.norm(g_flat, dim=1, ord=2)
+                    step = g / (g_norm.view(-1, 1, 1) + cfg.grad_eps)
+                
                     adv_i.attack.data -= cfg.step_size * step
                     adv_i.clip_attack()
 

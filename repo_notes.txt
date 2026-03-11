@@ -1,0 +1,56 @@
+**CORE PIPELINE**: 
+Data Loading:
+load_bbq.py
+load_pairs.py
+
+Attack Construction:
+layer_attack_direction.py
+extract_directions.py
+(Output: results/directions/direction_records_*.pt)
+
+Reward Model Wrapper:
+rm_utils.py
+
+PCA Interpretation:
+pca_directions.py
+(Output: results/pca/)
+label_components.py
+(Output: results/labels/)
+
+Experiment Sweep Runners:
+run_core_sweep.py
+run_eps_sweep.py
+run_label_all_pca.py
+
+**ANALYSIS**:
+Robustness Analysis:
+analyze_robustness_sweep.py
+(Output: results/analysis_robustness/)
+
+PCA Interpretability Analysis:
+analyze_pca_and_labels_sweep.py
+(Output: results/analysis_pca/)
+
+Quick PCA Summaries (Optional Utilities):
+summarize_component_contributions.py
+summarize_pca_run.py
+concise_summarize_pca_labels.py
+pick_and_summarize_pca_with_labels.py
+
+Exploratory Visualization (Legacy):
+plot_raw_scores.py
+plot_relative_scores.py
+
+OLD BASELINES:
+layer_attack.py
+
+OLD DATA PIPELINES:
+synthetic_data_gen.py
+synthetic_data_load.py
+hh_data.py
+
+OLD SWEEP INFRASTRUCTURE:
+pca_from_sweep.py
+label_from_sweep.py
+rerun_shared_flip_eps01_with_deltas.py
+run_flip_sweep.py

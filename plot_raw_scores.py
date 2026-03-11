@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+#plot_raw_scores.py
 """
 Make 3 figures (early/mid/late). Each figure is a panel grid over epsilons,
 where each panel is a 2D histogram of (Δchosen, Δrejected):
