@@ -9,7 +9,4 @@ __pycache__/
 .env
 *.log
 
-# results: ignore everything except the one snapshot
-results/*
-!results/sweep_bucketlayers_n215.jsonl
 
