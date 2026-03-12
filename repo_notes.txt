@@ -1,56 +1,84 @@
-**CORE PIPELINE**: 
+**PROJECT STRUCTURE**
+
+src/
+  data/              # Data loading
+    load_bbq.py      # BBQ dataset pairs
+    load_pairs.py    # Unified loader (BBQ, MMLU, GSM-MC, SGXS)
+
+  core/              # Core pipeline
+    rm_utils.py      # Skywork RM wrapper
+    layer_attack_direction.py  # LAT attack construction
+    extract_directions.py      # Direction extraction
+    pca_directions.py          # PCA decomposition
+    label_components.py        # Auto-labeling
+
+runners/             # Experiment runners
+  run_core_sweep.py  # Main sweep
+  run_eps_sweep.py   # Epsilon sweep
+  run_label_all_pca.py
+
+analysis/            # Post-hoc analysis
+  analyze_robustness_sweep.py     # Robustness analysis
+  analyze_pca_and_labels_sweep.py # PCA interpretation
+
+utils/               # Helper scripts
+  summarize_component_contributions.py
+  summarize_pca_run.py
+  concise_summarize_pca_labels.py
+  pick_and_summarize_runs.py
+
+**RESULTS STRUCTURE**
+
+results/
+  outputs/           # Direct pipeline outputs
+    directions/      # Direction vectors (.pt)
+    pca/             # PCA results (.pt)
+    labels/          # Semantic labels (.jsonl)
+    deltas/          # Delta tensors
+  analysis/          # Derived analysis
+    robustness/      # Robustness analysis outputs
+    pca/             # PCA analysis outputs
+    figs/            # Visualization figures
+  data/              # Sweep/log data
+    sweeps/          # Large sweep outputs
+    logs/            # Pipeline logs
+
+**ARCHIVED** (in archive/, gitignored)
+
+- labels_placeholder/   # Old PLACEHOLDER labels
+- labels_from_sweep/    # Old sweep labels
+- pca_from_sweep/       # Old sweep PCA
+- pca_meeting/          # Meeting files
+- sweep_results/        # Old timestamped runs
+- misc/                 # Other archived files
+
+**LEGACY** (in legacy/scripts/)
+
+- layer_attack.py, synthetic_data_*.py, hh_data.py
+- pca_from_sweep.py, label_from_sweep.py
+- run_flip_sweep.py, rerun_shared_flip_eps01_with_deltas.py
+- plot_raw_scores.py, plot_relative_scores.py, time_run.py
+
+**PIPELINE FLOW**
+
 Data Loading:
-load_bbq.py
-load_pairs.py
+  src/data/load_pairs.py -> src/data/load_bbq.py
 
-Attack Construction:
-layer_attack_direction.py
-extract_directions.py
-(Output: results/directions/direction_records_*.pt)
-
-Reward Model Wrapper:
-rm_utils.py
+Direction Extraction:
+  src/core/extract_directions.py (uses layer_attack_direction.py, rm_utils.py)
+  Output: results/outputs/directions/direction_records_*.pt
 
 PCA Interpretation:
-pca_directions.py
-(Output: results/pca/)
-label_components.py
-(Output: results/labels/)
+  src/core/pca_directions.py
+  Output: results/outputs/pca/pca_*.pt
 
-Experiment Sweep Runners:
-run_core_sweep.py
-run_eps_sweep.py
-run_label_all_pca.py
+Auto-Labeling:
+  src/core/label_components.py
+  Output: results/outputs/labels/component_labels_*.jsonl
 
-**ANALYSIS**:
-Robustness Analysis:
-analyze_robustness_sweep.py
-(Output: results/analysis_robustness/)
+Analysis:
+  analysis/analyze_robustness_sweep.py -> results/analysis/robustness/
+  analysis/analyze_pca_and_labels_sweep.py -> results/analysis/pca/
 
-PCA Interpretability Analysis:
-analyze_pca_and_labels_sweep.py
-(Output: results/analysis_pca/)
-
-Quick PCA Summaries (Optional Utilities):
-summarize_component_contributions.py
-summarize_pca_run.py
-concise_summarize_pca_labels.py
-pick_and_summarize_pca_with_labels.py
-
-Exploratory Visualization (Legacy):
-plot_raw_scores.py
-plot_relative_scores.py
-
-OLD BASELINES:
-layer_attack.py
-
-OLD DATA PIPELINES:
-synthetic_data_gen.py
-synthetic_data_load.py
-hh_data.py
-
-OLD SWEEP INFRASTRUCTURE:
-pca_from_sweep.py
-label_from_sweep.py
-rerun_shared_flip_eps01_with_deltas.py
-run_flip_sweep.py
+Main Runner:
+  runners/run_core_sweep.py (orchestrates: extract -> pca -> label)
