@@ -277,7 +277,15 @@ def load_pairs(
     # ---------------------------------------------------
     if dataset_name in ["gsm_mc", "math_mc"]:
 
-        data_dir = os.getenv("MC_EVAL_DIR", "MC-Evaluation")
+        data_dir = os.path.abspath(
+            os.path.join(os.path.dirname(__file__), "../../../MC-Evaluation")
+        )
+
+        if not os.path.exists(data_dir):
+            raise RuntimeError(
+                f"MC-Evaluation dataset not found at {data_dir}. "
+                "Expected it next to the repo in ~/lat/MC-Evaluation."
+            )
     
         subset_map = {
             "gsm_mc": "gsm8k-mc",
