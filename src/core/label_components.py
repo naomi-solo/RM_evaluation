@@ -68,6 +68,9 @@ Task:
 4) Give 3 "NOT about" negatives (common confusions).
 
 Be specific and avoid vague answers like "general semantics".
+Do NOT describe the experiment or the model.
+Only describe the semantic topic shared by the examples.
+If no clear topic exists, respond "unclear".
 Return JSON with keys: label, explanation, keywords, negatives.
 """
 
