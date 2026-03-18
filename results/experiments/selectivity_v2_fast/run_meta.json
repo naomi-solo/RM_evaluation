@@ -1,0 +1,30 @@
+{
+  "exp_name": "selectivity_v2_fast",
+  "out_path": "results/experiments/selectivity_v2_fast/raw/transfer_eval_records.jsonl",
+  "n_directions": 5,
+  "n_targets": 500,
+  "n_alphas": 4,
+  "n_records": 10000,
+  "datasets": [
+    "bbq",
+    "gsm_mc",
+    "math_mc",
+    "mmlu",
+    "sgxs"
+  ],
+  "n_per_dataset": 200,
+  "split": "holdout",
+  "seed": 0,
+  "holdout_size": 100,
+  "alphas": [
+    0.1,
+    0.3,
+    0.5,
+    1.0
+  ],
+  "layer": 14,
+  "model": "Skywork/Skywork-Reward-V2-Qwen3-0.6B",
+  "component_specs": "sgxs:0,gsm_mc:0,math_mc:0,mmlu:0,bbq:0",
+  "pca_dir": "archive/pca_from_sweep",
+  "labels_dir": "archive/labels_from_sweep"
+}
